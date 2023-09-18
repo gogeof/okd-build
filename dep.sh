@@ -19,6 +19,11 @@ install_docker(){
 
 
 	sudo yum -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+	systemctl start docker
+	systemctl enable docker
+
+	docker run --privileged --rm tonistiigi/binfmt --install all
 }
 
 main(){
